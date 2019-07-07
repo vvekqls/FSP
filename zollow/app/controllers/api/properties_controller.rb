@@ -7,17 +7,19 @@ class Api::PropertiesController < ApplicationController
 
   def create 
     @property = Property.new(property_params)
-    @property.owner_id = current_user.id
+    
+    # @property.owner_id = current_user.id
+    # need to use this code to save the property 
 
     if @property.save
       render :show
     else
-      render json: @Property.errors.full_messages, status: 422
+      render json: @property.errors.full_messages, status: 422
     end
   end
 
   def show
-    @property =Property.find(params[:id])
+    @property = Property.find(params[:id])
     render :show
   end
 
@@ -31,19 +33,19 @@ class Api::PropertiesController < ApplicationController
   end
 
   def destroy
-    property = current_user.properties.find(params[:id])
-    if property
-      property.update({ sale: false, rent: false })
+    @property = current_user.properties.find(params[:id])
+    if @property
+      @property.update({ sale: false, rent: false })
       render json: {message: 'This property has been removed'}
     else
-      render json: property.errors.full_messages, status: 422
+      render json: @property.errors.full_messages, status: 422
     end
   end
 
 
   
   def property_params
-    params.require(:property).permit(
+    params.fetch(:property, {}).permit(
       :address, 
       :latitude, 
       :longitude, 
@@ -51,7 +53,7 @@ class Api::PropertiesController < ApplicationController
       :baths, 
       :price, 
       :sale, 
-      :rent, 
+      :rent 
     ) 
   end
 end

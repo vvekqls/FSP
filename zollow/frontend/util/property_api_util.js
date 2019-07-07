@@ -18,9 +18,10 @@ export const createProperty = property => (
   $.ajax({
     method: 'POST',
     url: 'api/properties',
-    data: property,
+    data: {property},
     contentType: false,
-    processData: false
+    processData: false,
+    error: (err) => console.log(err)
   })
 );
 
@@ -28,9 +29,10 @@ export const updateProperty = (property) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/properties/${property.id}/`,
-    data: property,
+    data: {property},
     contentType: false,
-    processData: false
+    processData: false,
+    error: (err) => console.log(err)
   });
 };
 

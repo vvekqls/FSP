@@ -21,9 +21,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :properties
+  has_many :properties,
   foreign_key: :owner_id,
-  classname: :Property
+  class_name: :Property
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
