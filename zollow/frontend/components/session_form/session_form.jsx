@@ -34,9 +34,9 @@ class LoginForm extends React.Component {
             clearInterval(handle)
             this.props.processForm(this.state)
           }
-        }, 10)
+        }, 50)
       }
-    }, 10)
+    }, 50)
   }
 
   componentWillUnmount(){
