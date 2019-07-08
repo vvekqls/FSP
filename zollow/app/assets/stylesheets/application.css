@@ -144,7 +144,7 @@
 
   .video-container {
     width: 100%;
-    height: 100%;
+    height: 85%;
     overflow: hidden;
     position: fixed;
     z-index: -1;
@@ -158,4 +158,11 @@
     bottom: 0;
     position: absolute;
     z-index: -1;
+}
+
+ .map {
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  
 }

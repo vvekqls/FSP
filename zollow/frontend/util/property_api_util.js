@@ -14,11 +14,11 @@ export const fetchProperty = id => (
   })
 )
 
-export const createProperty = property => (
+export const createProperty = propertyform => (
   $.ajax({
     method: 'POST',
     url: 'api/properties',
-    data: {property},
+    data: propertyform,
     contentType: false,
     processData: false,
     error: (err) => console.log(err)
