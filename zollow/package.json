@@ -34,6 +34,7 @@
     "react-geocode": "^0.1.2",
     "react-google-autocomplete": "^1.1.0",
     "react-google-maps": "^9.4.5",
+    "react-modal": "^3.8.2",
     "react-native-video": "^4.4.2",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",

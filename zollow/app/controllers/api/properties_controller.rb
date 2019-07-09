@@ -6,12 +6,12 @@ class Api::PropertiesController < ApplicationController
   end
 
   def create 
-    @property = Property.new(property_params)
-    
+    # debugger
     # @property.owner_id = current_user.id
+    @property = Property.new(property_params)
     # need to use this code to save the property 
 
-    if @property.save
+    if @property.save!
       render :show
     else
       render json: @property.errors.full_messages, status: 422
@@ -45,7 +45,8 @@ class Api::PropertiesController < ApplicationController
 
   
   def property_params
-    params.fetch(:property, {}).permit(
+    debugger
+    params.require(:property).permit(
       :address, 
       :latitude, 
       :longitude, 
@@ -53,7 +54,8 @@ class Api::PropertiesController < ApplicationController
       :baths, 
       :price, 
       :sale, 
-      :rent 
+      :rent,
+      :owner_id
     ) 
   end
 end

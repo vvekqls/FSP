@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
-// import MarkerManager from '../../util/marker_manager';
+// import MarkerManager from '../../util/marker'
+// import { Marker } from "react-google-maps";
 
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
@@ -17,9 +18,11 @@ const mapOptions = {
 };
 
 class BenchMap extends React.Component {
+
   componentDidMount() {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
+    // this.MarkerManager = new MarkerManager(this.map);
     // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     // if (this.props.singleBench) {
     //   this.props.fetchBench(this.props.benchId);
@@ -69,6 +72,13 @@ class BenchMap extends React.Component {
     return (
       <div className="map" ref="map">
         Map
+        {/* <Marker google={this.props.google}
+          name={'Dolores park'}
+          draggable={true}
+          onDragEnd={this.onMarkerDragEnd}
+          position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
+        />
+        <Marker /> */}
       </div>
     );
   }
