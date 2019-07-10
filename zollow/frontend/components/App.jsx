@@ -16,19 +16,19 @@ import Modale from './modal/modal'
 import BenchMap from './map/map'
 import property_index_container from './property_index/property_index_container';
 
-
 const App = () => (
   <div className="main-page-image">
     <header className="header-container">
     <GreetingContainer />
     <Modale/>
     </header>
-      {/* <Example /> */}
+      <Example />
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
-      <Route path="/" component={property_index_container} />
-      {/* <Route exact path="/" component={PropertyShowContainer} /> */}
+      <Route path="/properties/:propertyId" component={PropertyShowContainer} />
+      <Route path="/properties" component={property_index_container} />
+      
     </Switch>
       
     

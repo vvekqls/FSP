@@ -9,6 +9,7 @@ const Greeting = ({ currentUser, logout }) => {
           <Link to="/login">Sign In</Link>
           &nbsp;or&nbsp;
           <Link to="/signup">Join</Link>
+          <Link to="/properties">properties</Link>
         </nav>
     </div>
     

@@ -22,18 +22,24 @@ class PropertyIndex extends React.Component {
         <PropertyIndexItem
           key={ property.id}
           property = {property}
+          
         />
       )
     );
 
     return (
-      <div>
-        THis page will be my properties page
-         {/* <BenchMap /> */}
-        <ul>
-          {propertyItems}
-        </ul>
-      </div>   
+      <div className='index-container'>
+        <div className='map-container'>
+          <BenchMap />
+        </div>
+        <div className="index-items-container">
+          THis page will be my properties page
+          <ul className="index-items">
+            
+              {propertyItems}
+          </ul>
+        </div>
+      </div> 
     )
   }
 }

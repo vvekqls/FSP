@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import { Link } from 'react-router-dom'
 import PropertyShowContainer from '../property_show/property_show_container';
 
 class PropertyIndexItem extends React.Component {
@@ -15,25 +15,27 @@ class PropertyIndexItem extends React.Component {
   }
 
   render() {
-    const { address, price, rent, sale, beds, baths} = this.props.property
+    const { address, price, rent, sale, beds, baths, photoUrls} = this.props.property
     return (
-      <div
-        className="property-index-item"
-        onClick={this.handleClick}>
-        <div className="index-item-info">
-          <span className="index-item-category"> price:</span>
-            <span> {price} </span>
-          <span className="index-item-category"> address:</span>
-          <span className="index-item-copy">
-            {address}
-          </span>
-          <span className="index-item-category"> beds:</span>
-            <span> {beds} </span>
-          <span className="index-item-category"> baths:</span>
-            <span> {baths} </span>
-        </div>
-        {/* <img src={picture_url} /> */}
-      </div>
+      
+        <li className="index-item">
+          <div
+            className="grid-container"
+            onClick={this.handleClick}>
+            <div className='image-container'>
+              <img className='image-grid' src={photoUrls} alt="" />
+            </div>
+            <div className='index-item-data'>
+              <span className="index-item-price"> ${price}</span>
+              <span className="index-item-beds"> {beds} beds</span>
+              <span className="index-item-beds"> {baths} baths</span>
+              <br />
+              <span className="index-item-adress"> {address}</span>
+            </div>
+          </div>
+        </li>
+
+      
     );
   }
 }

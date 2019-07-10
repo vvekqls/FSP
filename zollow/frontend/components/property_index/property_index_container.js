@@ -7,7 +7,8 @@ import { fetchProperties } from '../../actions/property_actions';
 
 const mapStateToProps = (state) => {
   return {
-    properties: Object.values(state.entities.properties)
+    properties: Object.values(state.entities.properties),
+    // navLink: <Link to="/properties">Sell</Link>,
   };
 };
 
