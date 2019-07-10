@@ -19,10 +19,18 @@
 class Property < ApplicationRecord
   
   validates :price, :address, :longitude, :latitude, :beds, :baths, :owner_id, presence: true
+  validates_uniqueness_of :latitude, :scope => [:longitude]
   validates :sale, inclusion: { in: [ true, false ] }
   validates :rent, inclusion: { in: [ true, false ] }
 
-  has_one_attached :photo
+  has_many_attached :photos
+
+  def self.in_bounds(bounds)
+    self.where("latitude < ?", bounds[:northEast][:lat])
+      .where("latitude > ?", bounds[:southWest][:lat])
+      .where("longitude > ?", bounds[:southWest][:lng])
+      .where("longitude < ?", bounds[:northEast][:lng])
+  end
   
   belongs_to :owner,
   foreign_key: :owner_id,

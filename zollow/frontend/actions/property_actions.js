@@ -18,17 +18,15 @@ const receiveProperty = (property) => {
   })
 }
 
-export const receiveErrors = errors => {
+const receiveErrors = errors => {
   return {
     type: RECEIVE_PROPERTY_ERRORS,
     errors
   };
 };
 
-
-
-export const fetchProperties = () => dispatch => (
-  APIUtil.fetchProperties().then(properties => (
+export const fetchProperties = (filter) => dispatch => (
+  APIUtil.fetchProperties(filter).then(properties => (
     dispatch(receiveProperties(properties))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))

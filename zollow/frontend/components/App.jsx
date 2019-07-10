@@ -1,5 +1,6 @@
 import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
+import PropertyShowContainer from './property_show/property_show_container'
 import {
   Route,
   Redirect,
@@ -13,6 +14,8 @@ import LoginFormContainer from './session_form/login_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modale from './modal/modal'
 import BenchMap from './map/map'
+import property_index_container from './property_index/property_index_container';
+
 
 const App = () => (
   <div className="main-page-image">
@@ -20,12 +23,15 @@ const App = () => (
     <GreetingContainer />
     <Modale/>
     </header>
+      {/* <Example /> */}
     <Switch>
-      <Example />
-      <BenchMap />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
+      <Route path="/" component={property_index_container} />
+      {/* <Route exact path="/" component={PropertyShowContainer} /> */}
     </Switch>
+      
+    
    
   </div>
 );

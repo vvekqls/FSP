@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
   demoLogin(e){
     e.preventDefault();
     let username = 'd3song'.split('')
-    let password = '12341234'.split('')
+    let password = 'password'.split('')
     let handle = setInterval(()=>{
       if (username.length > 0) {
         this.setState({
@@ -42,8 +42,6 @@ class LoginForm extends React.Component {
   componentWillUnmount(){
     this.props.removeErrors();
   }
-
-
 
   update(field) {
     return e => this.setState({

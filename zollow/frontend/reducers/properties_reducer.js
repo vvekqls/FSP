@@ -1,6 +1,7 @@
 
 import merge from 'lodash/merge';
 import { RECEIVE_PROPERTIES, RECEIVE_PROPERTY } from '../actions/property_actions'
+
 const propertiesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {

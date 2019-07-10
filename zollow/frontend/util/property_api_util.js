@@ -1,39 +1,37 @@
-export const fecthProperties = () => (
-  $.ajax({
+export const fetchProperties = (data) => {
+  return $.ajax({
     method: 'GET',
-    url: 'api/properties',
+    url: '/api/properties',
+    data,
     error: (err) => console.log(err)
-  })
-)
+  });
+};
 
-export const fetchProperty = id => (
-  $.ajax({
+export const fetchProperty = (id) => {
+  return $.ajax({
     method: 'GET',
-    url: `api/properties/${id}`,
+    url: `/api/properties/${id}`,
     error: (err) => console.log(err)
-  })
-)
+  });
+};
 
-export const createProperty = property => {
-  debugger
+export const createProperty = (property) => {
   return $.ajax({
     method: 'POST',
-    url: 'api/properties',
-    data: {property} ,
-    contentType: false,
-    processData: false,
-    error: (err) => console.log(err)
-  })
-}
+    url: '/api/properties',
+    data: {property},
+    // contentType: false,
+    // processData: false
+  });
+};
 
 export const updateProperty = (property) => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/properties/${property.id}/`,
-    data: {property},
+    url: `/api/properties/${property.id}`,
+    data: property,
     contentType: false,
-    processData: false,
-    error: (err) => console.log(err)
+    processData: false
   });
 };
 
@@ -45,3 +43,11 @@ export const deleteProperty = id => {
   });
 };
 
+// export const savedHomes = homeIds => {
+//   return $.ajax({
+//     method: 'GET',
+//     url: '/api/homes/savedhomes',
+//     data: { home_ids: homeIds },
+//     error: (err) => console.log(err)
+//   });
+// };
