@@ -1,24 +1,16 @@
-# README
+# Yollow
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Summary
+---
+Yollow is and will be the leading real estate and rental marketplace. 
+This website will help users to find perfect home to rent or buy in U.S. Select your pefect house by choosing location, price, beds, and baths. Our friendly and knowledgeable website will help you find your perfect house!
 
-Things you may want to cover:
+## Features
+---
+User and Session Authentication
+Google map
+Index and Show pages for properties.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Core
+---
+The main page consists of header with four main links and user login/signup. The links redirects to the index page where lists properties for rent or buy. The show page 
