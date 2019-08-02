@@ -19,16 +19,16 @@ export const createProperty = (property) => {
   return $.ajax({
     method: 'POST',
     url: '/api/properties',
-    data: {property},
-    // contentType: false,
-    // processData: false
+    data: property,
+    contentType: false,
+    processData: false
   });
 };
 
-export const updateProperty = (property) => {
+export const updateProperty = (property, id) => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/properties/${property.id}`,
+    url: `/api/properties/${id}`,
     data: property,
     contentType: false,
     processData: false
@@ -43,11 +43,11 @@ export const deleteProperty = id => {
   });
 };
 
-// export const savedHomes = homeIds => {
+// export const savedHomes = PropertyIds => {
 //   return $.ajax({
 //     method: 'GET',
 //     url: '/api/homes/savedhomes',
-//     data: { home_ids: homeIds },
+//     data: { property_ids: propertyIds },
 //     error: (err) => console.log(err)
 //   });
 // };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import Modal from '../modal/modal'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -52,7 +53,8 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
+
   }
 
   renderErrors() {
@@ -73,6 +75,7 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
             <h2>Welcome to Yollow!</h2>
           <br />
+          <div onClick={this.props.closeModal} className="close-x">x</div>
           <div className="session-button-container">
             <button className="session-button">{this.props.navSignin}</button>
             <button className="session-button">{this.props.navLink}</button>
@@ -87,7 +90,7 @@ class LoginForm extends React.Component {
                 placeholder="Enter Username"
                 onChange={this.update('username')}
                 className="login-input"
-              />
+                />
             
             <br />
               <input type="password"
@@ -95,7 +98,7 @@ class LoginForm extends React.Component {
                 placeholder="Enter Password"
                 onChange={this.update('password')}
                 className="login-input"
-              />
+                />
             
             <br />
             <div className="session-submit-container">
@@ -105,6 +108,7 @@ class LoginForm extends React.Component {
           </div>
         </form>
       </div>
+    
     );
   }
 }

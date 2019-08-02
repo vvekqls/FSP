@@ -8,9 +8,14 @@ class SignUpForm extends React.Component {
     this.state = {
       email: '',
       username: '',
-      password: ''
+      password: '',
+      close: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  closeShow() {
+    this.setState({ close: true });
   }
 
   componentWillUnmount() {
@@ -25,7 +30,7 @@ class SignUpForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -46,6 +51,7 @@ class SignUpForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <h2>Welcome to Yollow!</h2>
           <br/>
+          <div onClick={this.props.closeModal} className="close-x">x</div>
           <div className="session-button-container">
             <button className="session-button">{this.props.navLink}</button>
             <button className="session-button">{this.props.navSignup}</button>

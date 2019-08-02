@@ -1,4 +1,4 @@
-import { RECEIVE_OWNER } from '../actions/owner_action';
+import { RECEIVE_OWNER } from '../actions/owner_actions';
 
 const ownerReducer = (state = {}, action) => {
   Object.freeze(state);

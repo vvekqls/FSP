@@ -1,65 +1,45 @@
 import React from 'react';
-import Modal from 'react-modal';
-// import GreetingContainer from '../greeting/greeting_container'
+import { closeModal } from '../../actions/modal_actions';
+import { connect } from 'react-redux';
+import LoginFormContainer from '../session_form/login_form_container';
+import SignupFormContainer from '../session_form/signup_form_container';
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+
+function Modal({ modal, closeModalCB }) {
+  if (!modal) {
+    return null;
   }
-};
+  let component;
 
-// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement(document.getElementById('root'))
-
-class Modale extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      modalIsOpen: false
-    };
-
-    this.openModal = this.openModal.bind(this);
-    
-    this.closeModal = this.closeModal.bind(this);
+  switch (modal) {
+    case 'login':
+      component = <LoginFormContainer />;
+      break;
+    case 'signup':
+      component = <SignupFormContainer />;
+      break;
+    default:
+      return null;
   }
-
-  openModal() {
-    this.setState({ modalIsOpen: true });
-  }
-
-  // afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   this.subtitle.style.color = '#f00';
-  // }
-
-  closeModal() {
-    this.setState({ modalIsOpen: false });
-  }
-
-  render() {
-    return (
-      <div>
-        <button onClick={this.openModal}>Open Modal</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          // onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          ariaHideApp={false}
-          contentLabel="Example Modal"
-        >
-          <button onClick={this.closeModal}>close</button>
-        </Modal>
+  return (
+    <div className="modal-background session" onClick={closeModalCB}>
+      <div className="modal-child session" onClick={e => e.stopPropagation()}>
+        {component}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-export default Modale
+const mapStateToProps = state => {
+  return {
+    modal: state.ui.modal
+  };
+};
 
+const mapDispatchToProps = dispatch => {
+  return {
+    closeModalCB: () => dispatch(closeModal())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

@@ -1,0 +1,18 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.modal-child {
+  position: relative;
+  top: 6.7em;
+  width: 15em;
+  background: white;
+  box-shadow: 0 0 5px;
+  line-height: 22.5px;
+  font-size: 15px;
+  color: #333;
+}

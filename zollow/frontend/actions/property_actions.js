@@ -25,8 +25,8 @@ const receiveErrors = errors => {
   };
 };
 
-export const fetchProperties = (filter) => dispatch => (
-  APIUtil.fetchProperties(filter).then(properties => (
+export const fetchProperties = (filters) => dispatch => (
+  APIUtil.fetchProperties(filters).then(properties => (
     dispatch(receiveProperties(properties))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))
@@ -49,8 +49,8 @@ export const createProperty = property => dispatch => (
   ))
 );
 
-export const updateProperty = (property) => dispatch => (
-  APIUtil.updateProperty(property.id).then(property => (
+export const updateProperty = (property, id) => dispatch => (
+  APIUtil.updateProperty(property, id).then(property => (
     dispatch(receiveProperty(property))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))

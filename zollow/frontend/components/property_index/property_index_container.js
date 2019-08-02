@@ -2,20 +2,22 @@ import React from 'react';
 import PropertyIndex from './property_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-
 import { fetchProperties } from '../../actions/property_actions';
+import { changeFilter } from '../../actions/filter_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     properties: Object.values(state.entities.properties),
-    // navLink: <Link to="/properties">Sell</Link>,
+    type: /[a-z]{3,}/.exec(ownProps.location.pathname)[0],
+    filters: state.ui.filters
   };
 };
 
 const mapDispatchToProps = dispatch => {
   
   return {
-    fetchProperties: () => dispatch(fetchProperties())
+    fetchProperties: (filter) => dispatch(fetchProperties(filter)),
+    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
   }
 };
 

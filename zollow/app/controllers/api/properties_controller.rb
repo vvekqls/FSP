@@ -1,13 +1,20 @@
 
 class Api::PropertiesController < ApplicationController
   def index
-    properties = bounds ? Property.in_bounds(bounds) : Property.all
+    properties = Property.in_bounds(params[:bounds]).with_attached_photos.sample(400)
+    min = params[:minPrice].to_i
+    max_temp = params[:maxPrice].to_i
+    max = (max_temp == 0 ? (+1.0/0.0) : max_temp )
 
-    if params[:minPrice] && params[:maxPrice]
-      properties = properties.where(pricing: seating_range)
+    @properties = properties.select do |property|
+      property.price >= min &&
+      property.price <= max &&
+      property.beds >= params[:minBeds].to_i &&
+      property.baths >= params[:minBaths].to_i &&
+      ( property.sale.to_s == params[:buy] ||
+        property.rent.to_s == params[:rent] )
     end
-
-    @properties = properties
+    
     render :index  
   end
 
@@ -46,8 +53,17 @@ class Api::PropertiesController < ApplicationController
     end
   end
 
+  def savedhomes
+    ids = params[:property_ids]
+    if ids
+      ids = ids.map(&:to_i)
+    end
+    @properties = Property.where(id: ids)
+    render :index
+  end
+
   def property_params
-    debugger
+    # debugger
     params.require(:property).permit(:address, :latitude, :longitude, :beds, :baths, :price, :sale, :rent)
   end
 
@@ -59,7 +75,7 @@ class Api::PropertiesController < ApplicationController
     params[:bounds]
   end
 
-  def home_photos
+  def property_photos
     params.require(:property).permit(photos: [])
   end
 end

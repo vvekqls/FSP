@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?, :require_logged_in
+  helper_method :current_user, :logged_in?, :require_logged_in, :saved_properties
 
   private
 
@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     current_user.reset_session_token!
     session[:session_token] = nil
     @current_user = nil
+  end
+
+  def saved_properties
+    Save.where(user_id: current_user.id)
   end
 
   def require_logged_in

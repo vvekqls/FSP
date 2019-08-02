@@ -9,6 +9,8 @@ class Example extends Component {
         }
     }
 
+
+
     render () {
         return (
           <div className="video-container">

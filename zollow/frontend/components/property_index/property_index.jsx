@@ -30,10 +30,16 @@ class PropertyIndex extends React.Component {
     return (
       <div className='index-container'>
         <div className='map-container'>
-          <BenchMap />
+          <BenchMap 
+          properties={this.props.properties}
+          singleProperty={true}
+
+          />
         </div>
         <div className="index-items-container">
-          THis page will be my properties page
+          <div className='real-estate'>
+            <h4>Real Estate {this.props.properties.length} homes to rent</h4>
+          </div>
           <ul className="index-items">
             
               {propertyItems}

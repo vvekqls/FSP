@@ -3,6 +3,7 @@ import {
   RECEIVE_CURRENT_USER,
   REMOVE_ERRORS
 }  from '../actions/session_actions'
+import { OPEN_MODAL } from '../actions/modal_actions';
 
 const sessionsErrorsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -12,6 +13,7 @@ const sessionsErrorsReducer = (state = [], action) => {
     case RECEIVE_CURRENT_USER:
       return [];
     case REMOVE_ERRORS:
+    case OPEN_MODAL:
       return [];
     default:
       return state;
