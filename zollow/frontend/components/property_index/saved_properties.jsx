@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import IndexItem from './property_index_item';
+import PropertyIndexItem from './property_index_item';
 import Footer from '../footer';
 import Pagination from '../../util/pagination_util';
 import { savedProperties } from '../../actions/property_actions';
@@ -32,7 +32,7 @@ class SavedProperties extends React.Component {
     const houseEnd = this.state.page * 20;
     const properties = allProperties.slice(houseStart, houseEnd).map(property => {
       return (
-        <HomeIndexItem
+        <PropertyIndexItem
           key={property.id}
           property={property}
           type={type}

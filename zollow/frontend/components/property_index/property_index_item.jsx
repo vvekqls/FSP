@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-// import { createSave, deleteSave } from '../../actions/save_actions';
+import { createSave, deleteSave } from '../../actions/save_actions';
 import { openModal } from '../../actions/modal_actions';
 
 class PropertyIndexItem extends React.Component {
@@ -14,28 +14,28 @@ class PropertyIndexItem extends React.Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  // handleSave(e) {
-  //   if (!this.props.loggedIn) {
-  //     this.props.openModal('login');
-  //   } else if (this.state.saved) {
-  //     this.setState({ saved: false });
-  //     this.props.deleteSave(this.props.property.id);
-  //   } else {
-  //     this.setState({ saved: true });
-  //     this.props.createSave(this.props.property.id);
-  //   }
-  // }
+  handleSave(e) {
+    if (!this.props.loggedIn) {
+      this.props.openModal('login');
+    } else if (this.state.saved) {
+      this.setState({ saved: false });
+      this.props.deleteSave(this.props.property.id);
+    } else {
+      this.setState({ saved: true });
+      this.props.createSave(this.props.property.id);
+    }
+  }
 
-  // componentDidUpdate() {
-  //   if (this.props.saved !== this.state.saved) {
-  //     this.setState({ saved: this.props.saved });
-  //   }
-  // }
+  componentDidUpdate() {
+    if (this.props.saved !== this.state.saved) {
+      this.setState({ saved: this.props.saved });
+    }
+  }
 
   render() {
     const { property } = this.props;
-    // const saved = window.saved;
-    // const unsaved = window.unsaved;
+    const saved = window.saved;
+    const unsaved = window.unsaved;
 
     let price = 0;
     let beds = '$';
@@ -45,18 +45,18 @@ class PropertyIndexItem extends React.Component {
       beds = property.beds === 1 ? 'bd' : 'bds';
     }
 
-    // const heart = this.state.saved ?
-    //   <button
-    //     onClick={this.handleSave}
-    //     className='index-save-button'><img className='index-saved-image' src={saved} /></button> :
-    //   <button
-    //     onClick={this.handleSave}
-    //     className='index-save-button'><img className='index-unsaved-image' src={unsaved} /></button>;
+    const heart = this.state.saved ?
+      <button
+        onClick={this.handleSave}
+        className='index-save-button'><img className='index-saved-image' src={saved} /></button> :
+      <button
+        onClick={this.handleSave}
+        className='index-save-button'><img className='index-unsaved-image' src={unsaved} /></button>;
 
     return (
       <li className='index-item'>
         <div className='index-save'>
-          {/* {heart} */}
+          {heart}
         </div>
         <Link
           to={`/${this.props.type}/${property.id}`}
@@ -92,8 +92,8 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
-    // createSave: (propertyId) => dispatch(createSave(propertyId)),
-    // deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
+    createSave: (propertyId) => dispatch(createSave(propertyId)),
+    deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
     openModal: modal => dispatch(openModal(modal))
   };
 };
