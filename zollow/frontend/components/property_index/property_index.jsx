@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router';
 
 import { ProtectedRoute } from '../../util/route_util';
 
-// import HomeMap from '../map/home_map';
+import PropertyMap from '../map/map';
 import PropertyListing from './property_listing';
 import PropertyShow from '../property_show/property_show_container'
 // import CreateHome from '../homes/create_home';
@@ -24,7 +24,7 @@ class PropertyIndex extends React.Component {
   componentDidMount() {
     // debugger
     if (this.state.type !== 'sell' || this.state.type !== 'savedProperties') {
-      this.props.changeFilter(this.state.type, true);
+      this.props.updateFilter(this.state.type, true);
     }
   }
 
@@ -32,7 +32,7 @@ class PropertyIndex extends React.Component {
     const keys = Object.keys(this.props.filters);
     const newType = /[a-z]{3,}/.exec(this.props.location.pathname)[0];
 
-    if (newType === 'savedhomes') return;
+    if (newType === 'savedProperties') return;
 
     for (let i = 0; i < keys.length; i++) {
       if (prevProps.filters[keys[i]] !== this.props.filters[keys[i]]) {
@@ -53,7 +53,7 @@ class PropertyIndex extends React.Component {
 
     return (
       <div className='index-body'>
-        {/* <HomeMap type={type} area={this.state.area} /> */}
+        <PropertyMap type={type} area={this.state.area} />
         {type === 'savedproperties' ?
           <ProtectedRoute component={SavedProperties} type={type} /> :
           <PropertyListing type={type} />}

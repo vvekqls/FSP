@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import HomeIndexItem from './property_index_item';
+import PropertyIndexItem from './property_index_item';
 // import Footer from '../footer'
 import Pagination from '../../util/pagination_util';
 
@@ -23,7 +23,7 @@ class PropertyListing extends React.Component {
     const PropertyEnd = this.state.page * 20;
     const properties = allProperties.slice(PropertyStart, PropertyEnd).map(property => {
       return (
-        <HomeIndexItem
+        <PropertyIndexItem
           key={property.id}
           property={property}
           type={type}

@@ -4,21 +4,21 @@ export const RECEIVE_PROPERTIES = "RECEIVE_PROPERTIES"
 export const RECEIVE_PROPERTY = "RECEIVE_PROPERTY"
 export const RECEIVE_PROPERTY_ERRORS = "RECEIVE_PROPERTY_ERRORS"
 
-const receiveProperties = (properties) => {
+export const receiveProperties = (properties) => {
   return({
     type: RECEIVE_PROPERTIES,
     properties
   })
 }
 
-const receiveProperty = (property) => {
+export const receiveProperty = (property) => {
   return({
     type: RECEIVE_PROPERTY,
     property
   })
 }
 
-const receiveErrors = errors => {
+export const receiveErrors = errors => {
   return {
     type: RECEIVE_PROPERTY_ERRORS,
     errors
