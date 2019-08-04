@@ -1,53 +1,72 @@
 import React from 'react';
-import PropertyIndexItem from './property_index_item';
-import BenchMap from '../map/map';
+import { Route, Switch, Redirect } from 'react-router';
+
+import { ProtectedRoute } from '../../util/route_util';
+
+// import HomeMap from '../map/home_map';
+import PropertyListing from './property_listing';
+import PropertyShow from '../property_show/property_show_container'
+// import CreateHome from '../homes/create_home';
+// import EditHome from '../homes/edit_home';
+import SavedProperties from './saved_properties';
 
 class PropertyIndex extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      
-    }
+      type: this.props.type,
+      area: props.filters.area,
+      completedType: false
+    };
   }
 
   componentDidMount() {
-    this.props.fetchProperties();
+    // debugger
+    if (this.state.type !== 'sell' || this.state.type !== 'savedProperties') {
+      this.props.changeFilter(this.state.type, true);
+    }
   }
+
+  componentDidUpdate(prevProps) {
+    const keys = Object.keys(this.props.filters);
+    const newType = /[a-z]{3,}/.exec(this.props.location.pathname)[0];
+
+    if (newType === 'savedhomes') return;
+
+    for (let i = 0; i < keys.length; i++) {
+      if (prevProps.filters[keys[i]] !== this.props.filters[keys[i]]) {
+        this.setState({
+          area: this.props.filters.area,
+          type: newType
+        });
+
+        this.props.fetchProperties(this.props.filters);
+        break;
+      }
+    }
+  }
+
+
   render() {
-    
-    // const properties  = this.props
-    if (!this.props.properties) return (<p>test</p>)
-    const propertyItems = this.props.properties.map(property=> (
-        <PropertyIndexItem
-          key={ property.id}
-          property = {property}
-          
-        />
-      )
-    );
+    const type = this.props.type;
 
     return (
-      <div className='index-container'>
-        <div className='map-container'>
-          <BenchMap 
-          properties={this.props.properties}
-          singleProperty={true}
+      <div className='index-body'>
+        {/* <HomeMap type={type} area={this.state.area} /> */}
+        {type === 'savedproperties' ?
+          <ProtectedRoute component={SavedProperties} type={type} /> :
+          <PropertyListing type={type} />}
 
-          />
-        </div>
-        <div className="index-items-container">
-          <div className='real-estate'>
-            <h4>Real Estate {this.props.properties.length} homes to rent</h4>
-          </div>
-          <ul className="index-items">
-            
-              {propertyItems}
-          </ul>
-        </div>
-      </div> 
-    )
+        <Switch>
+          {/* <ProtectedRoute exact path={'/sell'} component={CreateHome} /> */}
+          {/* <ProtectedRoute path={'/sell/:propertyId/edit'} component={EditHome} /> */}
+          <Route path={`/${type}/:propertyId`} component={PropertyShow} />
+        </Switch>
+      </div>
+    );
   }
 }
 
 export default PropertyIndex;
+

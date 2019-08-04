@@ -1,16 +1,16 @@
-export const createSave = (homeId) => {
+export const createSave = (propertyId) => {
   return $.ajax({
     method: 'POST',
     url: '/api/saves',
-    data: { home_id: homeId },
+    data: { property_id: propertyId },
     error: (err) => console.log(err)
   });
 };
 
-export const deleteSave = (home_id) => {
+export const deleteSave = (property_id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/saves/${home_id}`,
+    url: `/api/saves/${property_id}`,
     error: (err) => console.log(err)
   });
 };

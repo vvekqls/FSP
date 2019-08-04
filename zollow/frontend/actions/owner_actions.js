@@ -1,4 +1,4 @@
-import ownerUtil from '../util/owner_api_util';
+import ownerUtil from '../util/owner_util';
 
 export const RECEIVE_OWNER = "RECEIVE_OWENR";
 

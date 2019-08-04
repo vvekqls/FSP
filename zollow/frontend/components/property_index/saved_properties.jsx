@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import PropertyIndexItem from './property_index_item';
-import Footer from '../footer';
+// import Footer from '../footer';
 import Pagination from '../../util/pagination_util';
 import { savedProperties } from '../../actions/property_actions';
 
@@ -50,7 +50,7 @@ class SavedProperties extends React.Component {
         <ul className='number-pages'>
           {Pagination(this)}
         </ul>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

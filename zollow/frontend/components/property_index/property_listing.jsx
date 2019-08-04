@@ -27,7 +27,7 @@ class PropertyListing extends React.Component {
           key={property.id}
           property={property}
           type={type}
-          // saved={this.props.savedHomes.includes(property.id)} 
+          saved={this.props.savedHomes.includes(property.id)} 
           />
       );
     });
@@ -55,7 +55,7 @@ const msp = state => {
 
   return {
     properties: Object.values(state.entities.properties),
-    // savedHomes: user.savedHomes || []
+    savedProperties: user.savedProperties || []
   };
 };
 

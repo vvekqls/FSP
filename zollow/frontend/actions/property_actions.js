@@ -65,9 +65,9 @@ export const deleteProperty = (id) => dispatch => (
   })
 );
 
-export const savedHomes = (homeIds) => dispatch => (
-  APIUtil.savedHomes(homeIds).then(homes => (
-    dispatch(receiveHomes(homes))
+export const savedProperties = (propertyIds) => dispatch => (
+  APIUtil.savedProperties(propertyIds).then(properties => (
+    dispatch(receiveProperties(properties))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))
   ))

@@ -9,7 +9,7 @@ function handlePageTurning(page, component) {
 function pages(component) {
   const { page } = component.state;
 
-  let numPages = Math.floor(component.props.homes.length / 20);
+  let numPages = Math.floor(component.props.properties.length / 20);
 
   if (page > numPages + 1) {
     component.setState({ page: 1 });
