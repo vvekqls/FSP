@@ -53,7 +53,7 @@ class Api::PropertiesController < ApplicationController
     end
   end
 
-  def savedhomes
+  def savedproperties
     ids = params[:property_ids]
     if ids
       ids = ids.map(&:to_i)

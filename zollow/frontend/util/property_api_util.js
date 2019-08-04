@@ -43,11 +43,11 @@ export const deleteProperty = id => {
   });
 };
 
-// export const savedHomes = PropertyIds => {
-//   return $.ajax({
-//     method: 'GET',
-//     url: '/api/homes/savedhomes',
-//     data: { property_ids: propertyIds },
-//     error: (err) => console.log(err)
-//   });
-// };
+export const savedProperties = propertyIds => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/properties/savedproperties',
+    data: { property_ids: propertyIds },
+    error: (err) => console.log(err)
+  });
+};
