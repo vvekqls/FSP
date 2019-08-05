@@ -21,12 +21,12 @@ class PropertyIndex extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   // debugger
-  //   if (this.state.type !== 'sell' || this.state.type !== 'savedproperties') {
-  //     this.props.updateFilter(this.state.type, true);
-  //   }
-  // }
+  componentDidMount() {
+    // debugger
+    if (this.state.type !== 'sell' || this.state.type !== 'savedproperties') {
+      this.props.changeFilter(this.state.type, true);
+    }
+  }
 
   componentDidUpdate(prevProps) {
     const keys = Object.keys(this.props.filters);

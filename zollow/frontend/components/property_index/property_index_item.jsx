@@ -52,7 +52,7 @@ class PropertyIndexItem extends React.Component {
       <button
         onClick={this.handleSave}
         className='index-save-button'><img className='index-unsaved-image' src={unsaved} /></button>;
-
+    // debugger
     return (
       <li className='index-item'>
         <div className='index-save'>
@@ -64,9 +64,9 @@ class PropertyIndexItem extends React.Component {
         >
           <div className='thumbnail-image-container'>
             <div className='thumbnail-image-gradient' />
-            {/* {
-              <img className='thumbnail-image' src={property.photos[0]} />
-            } */}
+            {
+              <img className='thumbnail-image' src={property.photoUrls[0]} />
+            }
           </div>
           <div className='index-item-data'>
             <div className='index-item-info'>

@@ -3,7 +3,7 @@ import PropertyIndex from './property_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { fetchProperties } from '../../actions/property_actions';
-import { updateFilter } from '../../actions/filter_actions';
+import { changeFilter } from '../../actions/filter_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // debugger
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
   
   return {
     fetchProperties: (filter) => dispatch(fetchProperties(filter)),
-    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
   }
 };
 
