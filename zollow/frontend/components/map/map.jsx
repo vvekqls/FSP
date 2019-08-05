@@ -117,7 +117,7 @@ class PropertyMap extends React.Component {
 
   // handleClick(coords) {
   //   this.props.history.push({
-  //     pathname: '/homes/',
+  //     pathname: '/properties/',
   //     search: `lat=${coords.lat}&lng=${coords.lng}`
   //   });
   // }
