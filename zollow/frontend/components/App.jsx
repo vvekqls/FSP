@@ -1,6 +1,4 @@
 import React from 'react';
-import GreetingContainer from './greeting/greeting_container';
-import PropertyShowContainer from './property_show/property_show_container'
 import {
   Route,
   Redirect,
@@ -14,8 +12,9 @@ import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import Navbar from '../components/navbar/navbar'
 import propertyForm from './property_show/property_form'
-// import SplashPage from './splash/splash_page'
+import SplashPage from './splash/splash_page_container'
 import PropertyIndex from './property_index/property_index_container'
+import Header from './header/header'
 
 
 const App = (props) => {
@@ -45,13 +44,13 @@ const App = (props) => {
       <Route path="/properties" component={property_index_container} />
       <Route path="/sell" component={propertyForm}/>
     </Switch> */}
+    <Header/>
     <Route exact path={splashPath} component={Example} />
-    <Switch>
-      {/* <Route exact path="/" component={SplashPage} /> */}
+    <Switch> 
+      <Route exact path="/" component={SplashPage} />
 
       <Route path='/' component={PropertyIndex} />
     </Switch>
-    
    
   </div>)
 };

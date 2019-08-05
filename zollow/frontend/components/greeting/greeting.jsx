@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const Greeting = ({ currentUser, logout, openModal }) => {
   const sessionLinks = () => (
     <div>
-        <div className="login-signup">
+        <nav className="login-signup">
           {/* <Link to="/login">Sign In</Link> */}
           <button onClick={() => openModal('login')}>Sign in</button>
           &nbsp;or&nbsp;
           {/* <Link to="/signup">Join</Link> */}
           <button onClick={() => openModal('signup')}>Join</button>
-        </div>
+        </nav>
     </div>
     
   );

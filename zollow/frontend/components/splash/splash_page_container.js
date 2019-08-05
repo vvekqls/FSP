@@ -1,8 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import SplashPage from './splash_page';
+import SplashPage from './splash_page.jsx'
 import { changeFilter } from '../../actions/filter_actions';
 import { openModal } from '../../actions/modal_actions';
 

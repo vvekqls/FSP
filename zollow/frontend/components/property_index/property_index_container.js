@@ -6,7 +6,7 @@ import { fetchProperties } from '../../actions/property_actions';
 import { updateFilter } from '../../actions/filter_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  
+  // debugger
   return {
     properties: Object.values(state.entities.properties),
     type: /[a-z]{3,}/.exec(ownProps.location.pathname)[0],

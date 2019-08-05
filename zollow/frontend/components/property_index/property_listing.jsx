@@ -27,7 +27,7 @@ class PropertyListing extends React.Component {
           key={property.id}
           property={property}
           type={type}
-          saved={this.props.savedHomes.includes(property.id)} 
+          saved={this.props.savedProperties.includes(property.id)} 
           />
       );
     });

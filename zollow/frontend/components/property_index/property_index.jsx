@@ -23,8 +23,8 @@ class PropertyIndex extends React.Component {
 
   // componentDidMount() {
   //   // debugger
-  //   // if (this.state.type !== 'sell' || this.state.type !== 'savedproperties') {
-  //   //   this.props.updateFilter(this.state.type, true);
+  //   if (this.state.type !== 'sell' || this.state.type !== 'savedproperties') {
+  //     this.props.updateFilter(this.state.type, true);
   //   }
   // }
 

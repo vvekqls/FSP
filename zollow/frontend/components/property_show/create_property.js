@@ -17,7 +17,7 @@ const msp = (reactState, ownProps) => {
     state = formattedAddress[2].split(" ")[0];
     zip = formattedAddress[2].split(" ")[1];
   }
-
+  // debugger
   return {
     prevLoc: reactState.ui.filters.buy ? 'buy' : 'rent',
 
@@ -29,8 +29,8 @@ const msp = (reactState, ownProps) => {
       zip,
       baths: 0,
       beds: 0,
-      userId: state.session.id,
-      username: state.entities.users[state.session.id].email,
+      userId: reactState.session.id,
+      username: reactState.entities.users[reactState.session.id].email,
       sale: null,
       rent: null,
       price: 0,
