@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ManageHome from './property_form';
+import PropertyForm from './property_form';
 
 import { createProperty } from '../../actions/home_actions';
 import { changeFilter } from '../../actions/filter_actions';
@@ -43,11 +43,11 @@ const msp = (reactState, ownProps) => {
 
 const mdp = dispatch => {
   return {
-    processHome: (property) => dispatch(createProperty(property)),
+    processProperty: (property) => dispatch(createProperty(property)),
     changeFilter: (filter, value) => dispatch(changeFilter(filter, value)),
   };
 };
 
-export default connect(msp, mdp)(ManageHome);
+export default connect(msp, mdp)(PropertyForm);
 
 

@@ -33,7 +33,7 @@ const App = (props) => {
       break;
   }
   return (<div className="main-page-image">
-    <header className="header-container">
+    {/* <header className="header-container">
     <Navbar/>
     <GreetingContainer />
     <Modal/>
@@ -45,7 +45,7 @@ const App = (props) => {
       <Route path="/properties/:propertyId" component={PropertyShowContainer} />
       <Route path="/properties" component={property_index_container} />
       <Route path="/sell" component={propertyForm}/>
-    </Switch>
+    </Switch> */}
       
     
    

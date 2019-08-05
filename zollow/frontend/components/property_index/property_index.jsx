@@ -22,8 +22,8 @@ class PropertyIndex extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
-    if (this.state.type !== 'sell' || this.state.type !== 'savedProperties') {
+    debugger
+    if (this.state.type !== 'sell' || this.state.type !== 'savedproperties') {
       this.props.updateFilter(this.state.type, true);
     }
   }
@@ -32,7 +32,7 @@ class PropertyIndex extends React.Component {
     const keys = Object.keys(this.props.filters);
     const newType = /[a-z]{3,}/.exec(this.props.location.pathname)[0];
 
-    if (newType === 'savedProperties') return;
+    if (newType === 'savedproperties') return;
 
     for (let i = 0; i < keys.length; i++) {
       if (prevProps.filters[keys[i]] !== this.props.filters[keys[i]]) {
@@ -53,11 +53,10 @@ class PropertyIndex extends React.Component {
 
     return (
       <div className='index-body'>
-        <PropertyMap type={type} area={this.state.area} />
+        <PropertyMap area={this.state.area} />
         {type === 'savedproperties' ?
           <ProtectedRoute component={SavedProperties} type={type} /> :
           <PropertyListing type={type} />}
-
         <Switch>
           {/* <ProtectedRoute exact path={'/sell'} component={CreateHome} /> */}
           {/* <ProtectedRoute path={'/sell/:propertyId/edit'} component={EditHome} /> */}
