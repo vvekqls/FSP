@@ -6,8 +6,8 @@ import { ProtectedRoute } from '../../util/route_util';
 import PropertyMap from '../map/map';
 import PropertyListing from './property_listing';
 import PropertyShow from '../property_show/property_show_container'
-// import CreateHome from '../homes/create_home';
-// import EditHome from '../homes/edit_home';
+import CreateProperty from '../property_show/create_property'
+import EditProperty from '../property_show/edit_property';
 import SavedProperties from './saved_properties';
 
 class PropertyIndex extends React.Component {
@@ -21,12 +21,12 @@ class PropertyIndex extends React.Component {
     };
   }
 
-  componentDidMount() {
-    debugger
-    if (this.state.type !== 'sell' || this.state.type !== 'savedproperties') {
-      this.props.updateFilter(this.state.type, true);
-    }
-  }
+  // componentDidMount() {
+  //   // debugger
+  //   // if (this.state.type !== 'sell' || this.state.type !== 'savedproperties') {
+  //   //   this.props.updateFilter(this.state.type, true);
+  //   }
+  // }
 
   componentDidUpdate(prevProps) {
     const keys = Object.keys(this.props.filters);
@@ -58,8 +58,8 @@ class PropertyIndex extends React.Component {
           <ProtectedRoute component={SavedProperties} type={type} /> :
           <PropertyListing type={type} />}
         <Switch>
-          {/* <ProtectedRoute exact path={'/sell'} component={CreateHome} /> */}
-          {/* <ProtectedRoute path={'/sell/:propertyId/edit'} component={EditHome} /> */}
+          <ProtectedRoute exact path={'/sell'} component={CreateProperty} />
+          <ProtectedRoute path={'/sell/:propertyId/edit'} component={EditProperty} />
           <Route path={`/${type}/:propertyId`} component={PropertyShow} />
         </Switch>
       </div>

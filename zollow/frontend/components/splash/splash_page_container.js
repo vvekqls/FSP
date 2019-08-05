@@ -19,4 +19,4 @@ const mdp = dispatch => {
   };
 };
 
-export default withRouter(connect(msp, mdp)(SplashBody));
+export default withRouter(connect(msp, mdp)(SplashPage));

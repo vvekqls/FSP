@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PropertyForm from './property_form';
 
-import { createProperty } from '../../actions/home_actions';
+import { createProperty } from '../../actions/property_actions';
 import { changeFilter } from '../../actions/filter_actions';
 
 const msp = (reactState, ownProps) => {

@@ -12,11 +12,11 @@ import {
 import Example from './main-backgroundimg/background'
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import property_index_container from './property_index/property_index_container';
 import Navbar from '../components/navbar/navbar'
 import propertyForm from './property_show/property_form'
-import Modal from '../components/modal/modal';
+// import SplashPage from './splash/splash_page'
+import PropertyIndex from './property_index/property_index_container'
+
 
 const App = (props) => {
   // debugger
@@ -36,9 +36,8 @@ const App = (props) => {
     {/* <header className="header-container">
     <Navbar/>
     <GreetingContainer />
-    <Modal/>
-    </header>
-      <Route exact path={splashPath}  component={Example}/>
+    </header> */}
+{/*       
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
@@ -46,7 +45,12 @@ const App = (props) => {
       <Route path="/properties" component={property_index_container} />
       <Route path="/sell" component={propertyForm}/>
     </Switch> */}
-      
+    <Route exact path={splashPath} component={Example} />
+    <Switch>
+      {/* <Route exact path="/" component={SplashPage} /> */}
+
+      <Route path='/' component={PropertyIndex} />
+    </Switch>
     
    
   </div>)
