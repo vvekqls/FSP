@@ -24,7 +24,7 @@ class MarkerManager {
       scaledSize: new google.maps.Size(15, 15)
     };
     const position = new google.maps.LatLng(property.latitude, property.longitude);
-    debugger
+    
     const marker = new google.maps.Marker({
       
       icon,
