@@ -27,6 +27,7 @@ class Api::PropertiesController < ApplicationController
     @property.owner_id = current_user.id
 
     if @property.save
+      Save.create(property_id: @property.id, user_id: current_user.id)
       render :show
     else
       render json: @property.errors.full_messages, status: 422
