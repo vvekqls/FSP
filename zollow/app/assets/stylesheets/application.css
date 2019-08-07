@@ -26,6 +26,7 @@
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+  font-family: Arial, Helvetica, sans-serif;
  }
 
  html {
@@ -97,7 +98,7 @@
    width: 25em;
    padding: 20px;
    justify-content: center;
-   text-align: center;
+   text-align: left;
    border-radius: 15px;
    background: white;
    position: absolute;
@@ -155,7 +156,7 @@
     padding-bottom: .7em;
     background: none;
     border: none;
-    cursor: pointer;
+    cursor: pointer
   }
 
   .session-button .selector {

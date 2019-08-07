@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-// import FilterModal from '../modal/filter_modal';
+import IndexModal from '../modal/index_modal';
 
 class IndexNav extends React.Component {
   constructor(props) {
@@ -79,7 +79,7 @@ class IndexNav extends React.Component {
 
     return (
       <nav className='filter-nav'>
-        {/* <FilterModal /> */}
+        <IndexModal />
         <ul className='filter-nav-lists'>
           <li>
             <form onSubmit={this.handleSubmit}>

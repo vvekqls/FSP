@@ -1,0 +1,23 @@
+.header-left {
+  display: inline-block;
+
+}
+
+.nav-links li{
+  display: inline;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.splash-logo-image {
+  height: 80px;
+  width: 100px;
+  display: block;
+  margin: 24px 0px 24px;
+  object-fit: cover;
+  fill: black;
+}
+.splash-logo-image a{
+  display:inline-block;
+  width: 100px;
+}

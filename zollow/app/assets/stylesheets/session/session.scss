@@ -1,0 +1,22 @@
+.session-submit {
+  margin: 8px;
+  text-align: center;
+}
+
+.close-x {
+  position: absolute;
+  font-weight: lighter;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer
+}
+
+.session-link-container {
+  border-bottom: 1px solid lightgrey;
+}
+
+.login-form-box .selected {
+    color: #0074e4;
+    border-bottom: 2px solid #0074e4;
+}

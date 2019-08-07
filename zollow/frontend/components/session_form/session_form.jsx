@@ -1,13 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import Modal from '../modal/modal'
 
-class LoginForm extends React.Component {
+class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
       username: '',
       password: ''
     };
@@ -15,11 +12,53 @@ class LoginForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
-  demoLogin(e){
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.processForm(user).then(this.props.closeModal);
+  }
+
+  renderErrors() {
+    return (
+      <ul className="session-errors-log">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  linkLogIn() {
+    return (
+      <div className='session-link-container'>
+        <button href='#' className='session-button selected'>Sign in</button>
+        {this.props.bothFormButton('signup', 'New Account')}
+      </div>
+    );
+  }
+
+  linkSignUp() {
+    return (
+      <div className='session-link-container'>
+        {this.props.bothFormButton('login', 'Sign in')}
+        <button href='#' className='session-button selected'>New Account</button>
+      </div>
+    );
+  }
+
+  demoLogin(e) {
     e.preventDefault();
     let username = 'd3song'.split('')
     let password = 'password'.split('')
-    let handle = setInterval(()=>{
+    let handle = setInterval(() => {
       if (username.length > 0) {
         this.setState({
           username: this.state.username + username.shift()
@@ -40,77 +79,53 @@ class LoginForm extends React.Component {
     }, 50)
   }
 
-  componentWillUnmount(){
-    this.props.removeErrors();
-  }
-
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(this.props.closeModal);
-
-  }
-
-  renderErrors() {
-    return (
-      <ul className="session-errors-log">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
+    let submitButton = 'Sign in';
+    let formButtons = this.linkLogIn();
+    let hasErrors = this.props.errors.length ? 'session-errors-input' : '';
+
+    if (this.props.formType === 'signup') {
+      submitButton = 'Submit';
+      formButtons = this.linkSignUp();
+    }
+
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-            <h2>Welcome to Yollow!</h2>
-          <br />
+          <h2>Welcome to Yollow</h2>
+
+          {formButtons}
+
           <div onClick={this.props.closeModal} className="close-x">x</div>
-          <div className="session-button-container">
-            <button className="session-button">{this.props.navSignin}</button>
-            <button className="session-button">{this.props.navLink}</button>
-            {/* <Link to="/login">Sign In</Link>  {this.props.navLink} */}
-            {this.renderErrors()}
-          </div>
-         
           <div className="login-form">
             <br />
-              <input type="text"
-                value={this.state.username}
-                placeholder="Enter Username"
-                onChange={this.update('username')}
-                className="login-input"
-                />
-            
+            {this.renderErrors()}
+            <input type="text"
+              value={this.state.username}
+              onChange={this.update('username')}
+              className={`login-input ${hasErrors}`}
+              placeholder='Enter username'
+            />
             <br />
-              <input type="password"
-                value={this.state.password}
-                placeholder="Enter Password"
-                onChange={this.update('password')}
-                className="login-input"
-                />
-            
+            <input type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              className={`login-input ${hasErrors}`}
+              placeholder='Enter password'
+            />
             <br />
-            <div className="session-submit-container">
-            <input className="session-submit" type="submit" value={this.props.formType} />
-            <button className="session-submit" onClick={this.demoLogin}>Log In to the Demo</button>
+            <div className='submit-buttons'>
+              <input className="session-submit" type="submit" value={submitButton} />
+              <button onClick={this.demoLogin} className="session-submit">Guest</button>
             </div>
+            <hr />
+
           </div>
         </form>
       </div>
-    
     );
   }
 }
 
-export default withRouter(LoginForm);
+export default withRouter(SessionForm);
+

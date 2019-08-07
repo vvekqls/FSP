@@ -24,7 +24,7 @@ class PropertyIndex extends React.Component {
   componentDidMount() {
     // debugger
     if (this.state.type !== 'sell' || this.state.type !== 'savedproperties') {
-      this.props.changeFilter(this.state.type, true);
+      this.props.changeFilter( this.state.type, true);
     }
   }
 

@@ -1,18 +1,28 @@
-.modal-background {
+.modal-background.session {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 10;
 }
 
-.modal-child {
-  position: relative;
-  top: 6.7em;
-  width: 15em;
+.modal-child.session {
+  position: absolute;
+  transform: translate(-50%, 0);
+
+  top: 5%;
+  left: 50%;
+
+  width: 27em;
+
   background: white;
   box-shadow: 0 0 5px;
+
   line-height: 22.5px;
   font-size: 15px;
-  color: #333;
+  color: #444;
+
+  padding: 10px 20px;
 }
