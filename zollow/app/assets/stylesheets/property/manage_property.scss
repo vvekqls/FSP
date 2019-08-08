@@ -1,0 +1,154 @@
+.home-child.manage {
+  min-width: 40em;
+  max-width: 50em;
+}
+
+.home-header-close.new-home{
+  border-left: 0;
+  border-right: 1px solid white;
+}
+
+.new-home-title {
+  width: 100%;
+  padding-top: 2em;
+  box-sizing: border-box;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.manage-home-form {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+}
+
+.manage-home-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-right: 1px solid #a9a9a9;
+}
+
+.manage-home-amenities {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.new-home-label {
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.new-home-input {
+  height: 2em;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 16px;
+  width: 15em;
+  margin-bottom: 1.15em;
+
+}
+
+.new-home-dropdown {
+  background: #0074e4;
+  height: 2em;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 18px;
+  width: 5em;
+  margin-bottom: .8em;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  cursor: pointer;
+}
+
+.new-home-dropdown:focus {
+  outline: none;
+}
+
+.new-home-option {
+  background: white;
+  color: black;
+}
+
+.add-image-button {
+  display: flex;
+  width: 30em;
+  padding-left: 3em;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.new-home-input.price-in {
+  text-align: right;
+}
+
+.home-submit {
+  background: #0074e4;
+  right: 2em;
+  position: absolute;
+  bottom: 2em;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.home-submit.disabled {
+  background: #6495ed87;
+}
+
+.home-errors {
+  color: red;
+  font-size: large;
+}
+
+.upload-image-container {
+  background: black;
+  width: 90%;
+  height: 20em;
+  overflow: hidden;
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  z-index: -1;
+}
+
+.upload-image {
+  height: 100%;
+}
+
+.image-traversal {
+  position: absolute;
+  font-weight: bolder;
+  bottom: 35%;
+  height: 3em;
+  width: 1.5em;
+  color: white;
+  background: #00000057;
+  border: 1px solid whitesmoke;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.image-traversal:hover {
+  background: #6495ed5e;
+}
+
+.image-traversal:focus {
+  outline: none;
+}
+
+.image-traversal.prev {
+  left: 0;
+}
+
+.image-traversal.next {
+  right: 0;
+}

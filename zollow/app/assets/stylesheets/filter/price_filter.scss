@@ -1,0 +1,41 @@
+.modal-child.price {
+  left: 25.5em;
+}
+
+.price-input {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #aaa;
+  padding: 10px 5px 5px 5px;
+}
+
+.price-input input {
+  width: 85px;
+  height: 30px;
+  box-sizing: border-box;
+  line-height: 1.5em;
+  padding: 4px 6px 2px 6px;
+}
+
+.price-button {
+  padding: 10px 12px;
+  width: 90%;
+  cursor: pointer;
+  font-weight: 400;
+  display: block;
+}
+
+.price-button:hover, .price-button.selected:hover {
+  background: #0074e4;
+  color: white;
+}
+
+.price-list.max {
+  text-align: end;
+}
+
+.price-button.selected {
+  background: #62aef7;
+  color: white;
+}
