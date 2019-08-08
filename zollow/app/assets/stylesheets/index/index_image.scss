@@ -1,0 +1,20 @@
+// .thumbnail-image {
+//   width: 100%;
+//   overflow: hidden;
+//   z-index: -1;
+//   // margin: auto;
+// }
+
+.thumbnail-image-gradient{
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  background-size: cover;
+  z-index: 0;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+}
+
+.thumbnail-image-container {
+  background-color: black;
+}
