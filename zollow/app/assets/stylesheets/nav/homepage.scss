@@ -1,0 +1,50 @@
+// .header-index {
+//   text-align: center;
+//   color: rgb(158, 156, 156);
+//   font-family: "Ivar Headline", "Times New Roman", serif;
+//   margin: 0, 0, 10px, 0;
+//   font-size: 60px;
+//   margin: 20px;
+// }
+// .header-index-page {
+//   text-align: center;
+//   color: white;
+//   font-family: "Open Sans", Tahoma, Geneva, sans-serif;
+//   font-size: 24px;
+
+// }
+.home-page-container {
+    top: 40%;
+    position: fixed;
+    left: 37%;
+    width: 450px;
+    -webkit-appearance: none;
+}
+
+.homepage-search-container {
+  display: flex;
+  align-items: center;  
+}
+
+#home-page-search {
+  border: none;
+  height: 50px;
+  width: 450px;
+  box-sizing: border-box;
+  border-radius: 5px 0 0 5px;
+  padding: 15px;
+  font-size: 16px;
+  background: white;
+}
+
+.hp-search-button-container{
+  display: inline;
+  background: white;
+}
+
+.fa-search {
+  background: white;
+  color: #0074e4;
+  position: absolute;
+  z-index: 1;
+}

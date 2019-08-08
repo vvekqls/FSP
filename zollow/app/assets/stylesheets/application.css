@@ -90,6 +90,7 @@
     right: 100px;
     top: 30px;
     white-space: nowrap;
+    margin-top: 50px;
     
   }
 
@@ -123,7 +124,13 @@
  }
 
  .login-input {
-   text-align: left;
+  text-align: left;
+  box-sizing: border-box;
+  height: 34px;
+  border: 1px solid #aaa;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
  }
 /* session-submit-container is div that contains button */
   .session-submit-container {
@@ -139,14 +146,6 @@
     border-radius: 5px;
     font-size: 15px;
     cursor: pointer;
- }
- input {
-    box-sizing: border-box;
-    height: 34px;
-    border: 1px solid #aaa;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
  }
 
   .session-button {
@@ -401,10 +400,6 @@
 .real-estate {
   color: #312f2f;
   margin-left: 10px;
-}
-
-.fa-home {
-  size: 400px;
 }
 
 .show-item-data-container {

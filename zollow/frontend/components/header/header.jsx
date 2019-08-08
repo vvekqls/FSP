@@ -32,7 +32,7 @@ const headerSplash = (props) => {
   return (
     <header className='splash'>
       <Modal />
-      <Link to='/' ><img className='splash-logo-image' src={window.logo}></img></Link>
+      {/* <Link to='/' ><img className='splash-logo-image' src={window.logo}></img></Link> */}
       <div className='splash-header-container' >
         <div className='header-left'>
           <ul className='nav-links'>
@@ -55,7 +55,7 @@ const headerIndex = (props) => {
   return (
     <header className='index'>
       <Modal />
-      <Link to='/'><img className='index-logo-image' src={window.logo}></img></Link>
+      {/* <Link to='/'><img className='index-logo-image' src={window.logo}></img></Link> */}
       <div className='nav-filter-links clearfix'>
         <div className='index-header-container' >
           <div className='header-left'>
@@ -66,9 +66,9 @@ const headerIndex = (props) => {
             </ul>
           </div>
 
-          <Greeting />
+          <Greeting/>
         </div>
-        <IndexNav />
+        <IndexNav/>
       </div>
     </header>
   );

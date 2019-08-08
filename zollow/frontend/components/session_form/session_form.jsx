@@ -5,11 +5,11 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: ''
+      password: '',
+      email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.demoLogin = this.demoLogin.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   update(field) {
@@ -54,29 +54,14 @@ class SessionForm extends React.Component {
     );
   }
 
-  demoLogin(e) {
+  guestLogin(e) {
     e.preventDefault();
-    let username = 'd3song'.split('')
-    let password = 'password'.split('')
-    let handle = setInterval(() => {
-      if (username.length > 0) {
-        this.setState({
-          username: this.state.username + username.shift()
-        })
-      } else {
-        clearInterval(handle)
-        handle = setInterval(() => {
-          if (password.length > 0) {
-            this.setState({
-              password: this.state.password + password.shift()
-            })
-          } else {
-            clearInterval(handle)
-            this.props.processForm(this.state)
-          }
-        }, 50)
-      }
-    }, 50)
+    const guest = {
+      email: 'd3song@asd',
+      password: 'password'
+    };
+
+    this.props.loginGuest(guest).then(this.props.closeModal);
   }
 
   render() {
@@ -101,10 +86,10 @@ class SessionForm extends React.Component {
             <br />
             {this.renderErrors()}
             <input type="text"
-              value={this.state.username}
-              onChange={this.update('username')}
+              value={this.state.email}
+              onChange={this.update('email')}
               className={`login-input ${hasErrors}`}
-              placeholder='Enter username'
+              placeholder='Enter email'
             />
             <br />
             <input type="password"
@@ -116,7 +101,7 @@ class SessionForm extends React.Component {
             <br />
             <div className='submit-buttons'>
               <input className="session-submit" type="submit" value={submitButton} />
-              <button onClick={this.demoLogin} className="session-submit">Guest</button>
+              <button onClick={this.guestLogin} className="session-submit">Guest</button>
             </div>
             <hr />
 

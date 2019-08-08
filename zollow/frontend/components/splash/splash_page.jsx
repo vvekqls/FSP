@@ -71,7 +71,8 @@ class SplashPage extends React.Component {
     return (
       <div>
         <div className='splash-body'>
-
+          {/* <h1 className="header-index">Reimagine home</h1>
+          <h2 className="header-index-page">We'll help you find a place you'll love</h2> */}
           <div className='home-page-container'>
             <div className='home-page-buttons'>
               <button onClick={this.handleTypeButton('buy')} className={`home-page-button ${type === 'buy' ? 'selected' : ''}`}>Buy</button>
@@ -82,6 +83,7 @@ class SplashPage extends React.Component {
             <span className={`search-selector ${type}`}></span>
 
             <div className='homepage-search-container'>
+             
               <form onSubmit={this.handleSubmit}>
                 <input
                   onChange={this.handleChange}
@@ -90,7 +92,8 @@ class SplashPage extends React.Component {
                 </input>
               </form>
               <div className='hp-search-button-container'>
-                <input onClick={this.handleSearch} type='submit' className='home-page-search-button' value='Search' />
+                <i onClick={this.handleSearch} className="fa fa-search fa-lg" aria-hidden="true"></i> 
+                {/* <input  type='submit' className='home-page-search-button' value='Search' /> */}
               </div>
             </div>
           </div>

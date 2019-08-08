@@ -1,0 +1,38 @@
+.modal-child.baths{
+  width: 5em;
+  left: 37.5em;
+}
+
+.bath-item {
+  padding: 10px 12px;
+  width: 68%;
+  cursor: pointer;
+  display: block;
+}
+
+.bath-item {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.bath-item:hover, .bath-item.selected:hover {
+  background: #0074e4;
+}
+
+.bath-item:hover, .bath-item.selected {
+  color: white;
+}
+
+.bath-list.max {
+  text-align: end;
+}
+
+.bath-item.selected {
+  background: #62aef7;
+  color: white;
+}
+
+li.bath-item {
+    font-weight: 400;
+    font-size: 15px;
+}

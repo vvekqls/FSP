@@ -9,15 +9,15 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
-    formType: 'Log In',
-    navLink: <Link to="/signup">New Account</Link>,
-    navSignin: <Link to="/login">Sign In</Link>
+    formType: 'login',
+  
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
+    loginGuest: (guest) => dispatch(login(guest)),
     removeErrors: () => dispatch(removeErrors()),
     bothFormButton: (type, text) => {
       return (

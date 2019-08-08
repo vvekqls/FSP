@@ -1,0 +1,38 @@
+.modal-child.beds{
+  width: 5em;
+  left: 31.5em;
+}
+
+.bed-item {
+  padding: 10px 12px;
+  width: 68%;
+  cursor: pointer;
+  display: block;
+}
+
+.bed-item {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.bed-item:hover, .bed-item.selected:hover {
+  background: #0074e4;
+}
+
+.bed-item:hover, .bed-item.selected {
+  color: white;
+}
+
+.bed-list.max {
+  text-align: end;
+}
+
+.bed-item.selected {
+  background: #62aef7;
+  color: white;
+}
+
+li.bed-item {
+    font-weight: 400;
+    font-size: 15px;
+}
