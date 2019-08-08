@@ -30,12 +30,12 @@ const App = (props) => {
   }
   return (<div className="main-page-image">
     <Header/>
-    <Route exact path={splashPath} component={Example} />
     <Switch> 
       <Route exact path="/" component={SplashPage} />
 
       <Route path='/' component={PropertyIndex} />
     </Switch>
+    <Route exact path={splashPath} component={Example} />
    
   </div>)
 };

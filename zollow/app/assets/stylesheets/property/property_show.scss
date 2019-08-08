@@ -1,0 +1,179 @@
+.home-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.home-child {
+  position: relative;
+
+  top: 0;
+  min-width: 20em;
+  max-width: 50em;
+  height: 100%;
+  margin: auto;
+
+  background: white;
+  box-shadow: 0 0 5px;
+
+  line-height: 22.5px;
+  font-size: 15px;
+  color: #444;
+  z-index: 2;
+}
+
+.home-header {
+  display: flex;
+  height: 50px;
+  background-color: #d9f0f9;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px 0 rgba(200,200,200,.5);
+}
+
+.home-header-save {
+  border-right: 1px solid white;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0;
+}
+
+.home-header-save:focus {
+  outline: none;
+}
+
+.home-header-close {
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 1px solid white;
+}
+
+.home-header-edit {
+  font-size: 13.333px;
+  padding: 1.4em 25px;
+  border-left: 1px solid white;
+  font-weight: 700;
+}
+
+.home-header button {
+  padding: 10px;
+  height: 50px;
+  background: transparent;
+  color: #444;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.home-header-delete {
+  border: none;
+  border-left: 1px solid white;
+}
+
+.home-header button:hover {
+  background: linear-gradient(to top,rgba(200,225,249,.5),#d9f0f9);
+}
+
+.home-saved-image {
+  width: 10px;
+}
+
+.home-unsaved-image {
+  width: 10px;
+}
+
+.home-address {
+  line-height: 5em;
+  padding: 0 20px;
+  height: 50px;
+  text-align: right;
+  color: #aaa;
+  font-size: 12px;
+  align-content: center;
+}
+
+.home-image {
+  width: 100%;
+  height: 28em;
+  background-color: black;
+  overflow: hidden;
+  margin-top: 1em;
+  text-align: center;
+}
+
+.home-image img {
+  height: 100%;
+}
+
+.home-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 3em;
+}
+
+.home-info-address {
+  text-transform: capitalize;
+  font-size: 33px;
+  line-height: 1.3;
+  font-weight: 700;
+  width: 70%;
+}
+
+.home-amenities {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.home-price-info {
+  padding-right: 3em;
+}
+
+.home-price-info li {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+.home-type {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.home-price {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.home-mortgage {
+  font-size: 13px;
+  line-height: 1.5;
+  padding-top: 1em;
+}
+
+.mortgage-price {
+  font-size: 1.33333333rem;
+  font-weight: 400;
+  padding-bottom: 1em;
+}
+
+.rent-month {
+  font-size: 15px;
+}
+
+.contact-button {
+  background: #0074e4;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 0;
+  height: 40px;
+  margin-top: 2em;
+  font-size: 1em;
+  cursor: pointer;
+}

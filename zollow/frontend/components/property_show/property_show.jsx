@@ -38,7 +38,7 @@ class Property extends React.Component {
   }
 
   handleDelete() {
-    this.props.deleteHome(this.props.property.id);
+    this.props.deleteProperty(this.props.property.id);
     this.closeShow();
   }
 

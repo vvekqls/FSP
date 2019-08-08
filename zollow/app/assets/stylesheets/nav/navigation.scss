@@ -1,10 +1,14 @@
-.splash {
-  width: 80%;
-  margin: auto;
+header {
+  height: 50px;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
-.login-signup button {
+.login-signup button{
   color: black;
   border: none;
   background: none;
@@ -12,38 +16,28 @@
   font-size: 16px;
 }
 
-.splash-header-container {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 0 0 100px;
-  height: 50px;
-}
-
-.header-left {
-  display: inline-block;
-
+.login-signup span{
+  color: black;
 }
 
 .nav-links {
-  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 20px;
 }
 
-.nav-links li{
-  display: inline;
-  padding: 20px;
+.nav-links > li {
+  margin: 0 10px;
   cursor: pointer;
 }
 
-.splash-logo-image {
-  height: 80px;
-  width: 100px;
-  display: block;
-  margin: 24px 0px 24px;
-  object-fit: cover;
-  fill: black;
+.nav-links a {
+  padding: 0 15px 10px 15px;
 }
-.splash-logo-image a{
-  display:inline-block;
-  width: 100px;
+
+.nav-links .active {
+  font-weight: bold;
+  color: #0074e4;
+  border-bottom: 4px solid #0074e4;
 }

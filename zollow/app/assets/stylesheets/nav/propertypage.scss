@@ -1,50 +1,76 @@
-// .header-index {
-//   text-align: center;
-//   color: rgb(158, 156, 156);
-//   font-family: "Ivar Headline", "Times New Roman", serif;
-//   margin: 0, 0, 10px, 0;
-//   font-size: 60px;
-//   margin: 20px;
-// }
-// .header-index-page {
-//   text-align: center;
-//   color: white;
-//   font-family: "Open Sans", Tahoma, Geneva, sans-serif;
-//   font-size: 24px;
-
-// }
-.home-page-container {
-    top: 40%;
-    position: fixed;
-    left: 37%;
-    width: 450px;
-    -webkit-appearance: none;
-}
-
-.homepage-search-container {
+.filter-nav {
+  justify-content: space-between;
   display: flex;
-  align-items: center;  
-}
-
-#home-page-search {
-  border: none;
   height: 50px;
-  width: 450px;
+  width: 100%;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,.5);
+}
+
+.nav-filter-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100px;
+}
+
+.filter-nav-lists {
+  display: flex;
+  align-items: center;
+}
+
+.filter-nav-lists > li {
+  border-right: 1px solid white;
+}
+
+.filter-nav-lists span {
+  font-size: 10px;
+}
+
+.filter-nav-lists button {
+  padding: 17px 10px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.filter-nav button:focus{
+  outline: none;
+}
+.filter-nav button:hover {
+  color: #62aef7;
+}
+
+.index-search-bar {
+  margin: 10px 20px;
+  width: 225px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  font-size: 12px;
   box-sizing: border-box;
-  border-radius: 5px 0 0 5px;
-  padding: 15px;
-  font-size: 16px;
-  background: white;
+  padding: 10px 10px;
+  border: 1px solid lightgray;
 }
 
-.hp-search-button-container{
-  display: inline;
-  background: white;
+.index-search-bar:hover {
+  border: 1px solid #0074e4;
 }
 
-.fa-search {
-  background: white;
-  color: #0074e4;
-  position: absolute;
-  z-index: 1;
+#saved-homes-button {
+  box-sizing: border-box;
+  font-weight: bold;
+  color: white;
+  background-color: #0074e4;
+  height: 100%;
+  padding: 10px;
+  border: none;
+}
+
+#saved-homes-button:hover {
+  background-color: #1b5098;
+  background: linear-gradient(to top,#0074e4,#1b5098);
 }

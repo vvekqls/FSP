@@ -20,3 +20,170 @@
     color: #0074e4;
     border-bottom: 2px solid #0074e4;
 }
+
+.modal-background.session {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+}
+
+.modal-child.session {
+  position: absolute;
+  transform: translate(-50%, 0);
+
+  top: 5%;
+  left: 50%;
+
+  width: 27em;
+
+  background: white;
+  box-shadow: 0 0 5px;
+
+  line-height: 22.5px;
+  font-size: 15px;
+  color: #444;
+
+  padding: 10px 20px;
+}
+
+.close-x {
+  position: absolute;
+  font-weight: lighter;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.login-form-box h2 {
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.session-button {
+  font-size: 18px;
+  font-weight: 300;
+  margin-right: 20px;
+  padding-bottom: .7em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.session-button:focus {
+  outline: none;
+}
+
+.login-form-box .selected {
+  color: #0074e4;
+  border-bottom: 2px solid #0074e4;
+}
+
+.session-link-container {
+  border-bottom: 1px solid lightgrey;
+}
+
+.login-input{
+  box-sizing: border-box;
+  height: 34px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(170, 170, 170);
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.session-submit {
+  height: 38px;
+  background: #0074e4;
+  color: #fff;
+  border: none;
+  width: 45%;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.forgot-container {
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+}
+
+#forgot-link {
+  cursor: pointer;
+  font-weight: 300;
+  text-decoration: none;
+  color: #0074e4;
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+#forgot-link:hover {
+  color: #62aef7;
+}
+
+.session-errors-log {
+  color: red;
+}
+
+.session-errors-input {
+  border: 1px solid red;
+  box-shadow: 0 0 5px red;
+}
+
+.submit-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-tooltip {
+  position: relative;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.user-tooltip:hover {
+  color: #62aef7
+}
+
+.tooltip-container {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  text-align: center;
+  color: #3390e9;
+  border: 1px solid rgb(204, 204, 204);
+
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 1;
+}
+
+.tooltip-container a {
+  display: block;
+  padding: 10px 5px;
+}
+
+/* .tooltip-container li {
+  padding: 10px 0;
+} */
+
+.tooltip-container li:last-child {
+  border-top: 1px solid rgb(204, 204, 204);
+}
+
+.tooltip-container li:hover {
+  background-color: #d9f0f9;
+}
+
+.user-tooltip:hover .tooltip-container {
+  visibility: visible;
+}

@@ -17,12 +17,10 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     
   );
   const personalGreeting = () => (
-    <hgroup className="header-group">
-      <div className='dropdown'>
-        <button className="header-name">My Yollow</button>
+      <div className="user-tooltip">
+        My Yollow
         <UserSetting logout={logout}/>
       </div>
-    </hgroup>
   );
 
   return currentUser ? personalGreeting(currentUser, logout) : sessionLinks();

@@ -7,7 +7,7 @@ const userSettings = (props) => {
     <div className='tooltip-container'>
       <ul className='user-settings'>
         <li><Link to='/savedhomes' className="header-button">Saved Homes</Link></li>
-        {/* <li><Link to='/' className="header-button" onClick={props.logout}>Log Out</Link></li> */}
+        <li><Link to='/' className="header-button" onClick={props.logout}>Log Out</Link></li>
       </ul>
     </div>
   );

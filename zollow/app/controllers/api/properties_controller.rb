@@ -43,7 +43,7 @@ class Api::PropertiesController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     property = current_user.properties.find(params[:id])
 
     if property
