@@ -12,6 +12,8 @@ import Example from './main-backgroundimg/background'
 import SplashPage from './splash/splash_page_container'
 import PropertyIndex from './property_index/property_index_container'
 import Header from './header/header'
+import Footer from './footer';
+
 
 
 const App = (props) => {

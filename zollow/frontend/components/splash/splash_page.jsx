@@ -1,5 +1,5 @@
 import React from 'react';
-// import Footer from '../footer';
+import Footer from '../footer';
 import { Redirect } from 'react-router-dom';
 
 class SplashPage extends React.Component {
@@ -98,7 +98,7 @@ class SplashPage extends React.Component {
             </div>
           </div>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }
