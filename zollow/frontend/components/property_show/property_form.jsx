@@ -5,7 +5,7 @@ import merge from 'lodash/merge';
 class PropertyForm extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = merge({
       close: false, lat: null, lng: null,
       validAddress: null, disabled: true,
@@ -65,8 +65,9 @@ class PropertyForm extends React.Component {
     formData.append('property[rent]', this.state.rent);
     formData.append('property[latitude]', this.state.lat);
     formData.append('property[longitude]', this.state.lng);
-    this.state.photos.forEach((photo) => {
-      formData.append('property[photos][]', photo);
+    // debugger
+    this.state.photoUrl.forEach((photo) => {
+      formData.append('property[photoUrl][]', photo);
     });
 
     this.props.processProperty(formData,
@@ -85,6 +86,7 @@ class PropertyForm extends React.Component {
   }
 
   setDisability() {
+    
     if (this.state.validAddress && this.handleValidSubmit()) {
       this.setState({ disabled: false, disabledClass: '' });
     } else {
@@ -93,6 +95,7 @@ class PropertyForm extends React.Component {
   }
 
   handleRentSell(e) {
+    
     switch (e.target.value) {
       case 'rent':
         this.setState({ rent: true, sale: false }, this.handleValidAddress);
@@ -104,6 +107,7 @@ class PropertyForm extends React.Component {
         this.setState({ rent: true, sale: true }, this.handleValidAddress);
         break;
       default:
+        
         return;
     }
   }
@@ -183,7 +187,6 @@ class PropertyForm extends React.Component {
     } else {
       redirectPath = 'rent';
     }
-
     const preview = this.state.photoUrl.length > 0 ?
       <div className='upload-image-container'>
         <button
@@ -191,7 +194,7 @@ class PropertyForm extends React.Component {
           onClick={this.prevImage}>{'<'}
         </button>
         <img className='upload-image'
-          src={this.state.photoUrl[this.state.currentPhoto]} />
+          src={this.state.photos[this.state.currentPhoto]} />
         <button
           className='image-traversal next'
           onClick={this.nextImage}>{'>'}
@@ -199,6 +202,7 @@ class PropertyForm extends React.Component {
       </div> : '';
 
     return (
+      
       <div
         onClick={this.closeShow}
         className='home-background'
