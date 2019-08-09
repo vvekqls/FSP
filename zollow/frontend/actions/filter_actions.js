@@ -9,7 +9,6 @@ export const changeFilter = (filter, value) => ({
 });
 
 export const updateFilter = (filter, value) => (dispatch, getState) => {
-  
   dispatch(changeFilter(filter, value));
   return fetchProperties(getState().ui.filters)(dispatch)
 }

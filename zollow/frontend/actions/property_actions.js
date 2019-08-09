@@ -26,12 +26,12 @@ export const receiveErrors = errors => {
   };
 };
 
-export const removeProperty = (property) => {
-  return({
-    type: REMOVE_PROPERTY,
-    property
-  })
-}
+// export const removeProperty = (property) => {
+//   return({
+//     type: REMOVE_PROPERTY,
+//     property
+//   })
+// }
 
 export const fetchProperties = (filters) => dispatch => (
   APIUtil.fetchProperties(filters).then(properties => (
@@ -66,10 +66,10 @@ export const updateProperty = (property, id) => dispatch => (
 )
 
 export const deleteProperty = (id) => dispatch => (
-  APIUtil.deleteProperty(id).then(property => (
-    removeProperty(property)
+  APIUtil.deleteProperty(id).then(message => (
+    console.log(message)
   ), err => {
-    return dispatch(receiveErrors(err.responseJSON))
+    return dispatch(receiveErrors(err.responseJSON));
   })
 );
 

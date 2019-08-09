@@ -42,7 +42,7 @@ class SavedProperties extends React.Component {
 
     return (
       <div className='index-items-container'>
-        <h2>Real Estate</h2> <span>{allHomes.length} Saved Properties</span>
+        <h2>Real Estate</h2> <span>{allProperties.length} Saved Properties</span>
         <ul className='index-items'>
           {properties}
         </ul>

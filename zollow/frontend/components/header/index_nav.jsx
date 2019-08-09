@@ -67,7 +67,7 @@ class IndexNav extends React.Component {
 
   handleSavedProperties() {
     if (this.props.loggedIn) {
-      this.props.history.push('/savedProperties');
+      this.props.history.push('/savedproperties');
     } else {
       this.props.openModal('login');
     }

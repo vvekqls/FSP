@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
   
   return {
     fetchProperties: (filter) => dispatch(fetchProperties(filter)),
-    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
+    updateFilter: (filter, value) => dispatch(changeFilter(filter, value))
   }
 };
 

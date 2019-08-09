@@ -10,11 +10,12 @@ const msp = (state, ownProps) => {
   const propertyId = parseInt(ownProps.match.params.propertyId);
   const property = state.entities.properties[propertyId] || {};
   const user = state.entities.users[state.session.id];
-
+  
   return {
     sessionId: state.session.id,
     loggedIn: Boolean(state.session.id),
     saved: user ? user.savedProperties.includes(propertyId) : false,
+    
     amtPhotos: property.photos ? property.photos.length : 1,
 
     property: {
