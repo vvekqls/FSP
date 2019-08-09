@@ -166,7 +166,11 @@ ul {
 }
 
  .video-container {
-   width: 100%;
+  width: 100%;
+  top: 55px;
+  bottom: 0;
+  position: fixed;
+  z-index: -1;
  }
 
  #background-video{

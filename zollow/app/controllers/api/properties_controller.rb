@@ -5,7 +5,8 @@ class Api::PropertiesController < ApplicationController
     min = params[:minPrice].to_i
     max_temp = params[:maxPrice].to_i
     max = (max_temp == 0 ? (+1.0/0.0) : max_temp )
-
+    
+    # debugger
     @properties = properties.select do |property|
       property.price >= min &&
       property.price <= max &&
@@ -14,7 +15,6 @@ class Api::PropertiesController < ApplicationController
       ( property.sale.to_s == params[:buy] ||
         property.rent.to_s == params[:rent] )
     end
-    
     render :index  
   end
 
@@ -47,7 +47,8 @@ class Api::PropertiesController < ApplicationController
     property = current_user.properties.find(params[:id])
 
     if property
-      property.update({ sale: false, rent: false })
+      property.delete
+      # property.update_attributes({ sale: false, rent: false })
       render json: {message: 'This property has been taken off'}
     else
       render json: property.errors.full_messages, status: 422

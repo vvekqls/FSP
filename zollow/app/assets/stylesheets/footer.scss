@@ -1,0 +1,49 @@
+.footer {
+  top: 90%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-container {
+  width: 50%;
+  height: 50px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #aaa;
+}
+
+.eho-image {
+  width: 50px;
+}
+
+.footer-text {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 7em;
+}
+
+.footer-text img {
+  width: 25px;
+}
+
+.index-items-container .footer-text {
+  width: 7em;
+}
+
+.index-items-container .footer-container {
+  width: 70%;
+}
+
+.index-items-container .footer{
+  top: auto;
+  bottom: auto;
+}

@@ -1,4 +1,4 @@
-json.extract! current_user, :id, :email, :username
+json.extract! current_user, :id, :email
 
 saves = saved_properties
 if logged_in? && saves

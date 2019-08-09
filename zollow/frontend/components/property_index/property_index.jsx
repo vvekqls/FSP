@@ -40,7 +40,6 @@ class PropertyIndex extends React.Component {
           area: this.props.filters.area,
           type: newType
         });
-
         this.props.fetchProperties(this.props.filters);
         break;
       }

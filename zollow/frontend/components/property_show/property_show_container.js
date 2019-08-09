@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Property from './property_show';
 
 import { fetchOwner } from '../../actions/owner_actions';
-import { fetchProperty, deleteProperty } from '../../actions/property_actions';
+import { fetchProperty, deleteProperty, fetchProperties } from '../../actions/property_actions';
 import { createSave, deleteSave } from '../../actions/save_actions';
 import { openModal } from '../../actions/modal_actions';
 
@@ -39,8 +39,9 @@ const mdp = dispatch => {
     createSave: (propertyId) => dispatch(createSave(propertyId)),
     deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
     deleteProperty: id => dispatch(deleteProperty(id)),
-    openModal: modal => dispatch(openModal(modal))
-  };
+    openModal: modal => dispatch(openModal(modal)),
+    fetchProperties: () => dispatch(fetchProperties())
+    };
 };
 
 export default connect(msp, mdp)(Property);

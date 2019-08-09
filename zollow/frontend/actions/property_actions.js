@@ -3,6 +3,7 @@ import * as APIUtil from '../util/property_api_util';
 export const RECEIVE_PROPERTIES = "RECEIVE_PROPERTIES"
 export const RECEIVE_PROPERTY = "RECEIVE_PROPERTY"
 export const RECEIVE_PROPERTY_ERRORS = "RECEIVE_PROPERTY_ERRORS"
+export const REMOVE_PROPERTY = 'REMOVE_PROPERTY'
 
 export const receiveProperties = (properties) => {
   return({
@@ -24,6 +25,13 @@ export const receiveErrors = errors => {
     errors
   };
 };
+
+export const removeProperty = (property) => {
+  return({
+    type: REMOVE_PROPERTY,
+    property
+  })
+}
 
 export const fetchProperties = (filters) => dispatch => (
   APIUtil.fetchProperties(filters).then(properties => (
@@ -58,8 +66,8 @@ export const updateProperty = (property, id) => dispatch => (
 )
 
 export const deleteProperty = (id) => dispatch => (
-  APIUtil.deleteProperty(id).then(message => (
-    console.log(message)
+  APIUtil.deleteProperty(id).then(property => (
+    removeProperty(property)
   ), err => {
     return dispatch(receiveErrors(err.responseJSON))
   })
