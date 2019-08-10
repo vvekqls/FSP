@@ -15,7 +15,7 @@ const msp = (state, ownProps) => {
     sessionId: state.session.id,
     loggedIn: Boolean(state.session.id),
     saved: user ? user.savedProperties.includes(propertyId) : false,
-    
+    properties: Object.values(state.entities.properties),
     amtPhotos: property.photos ? property.photos.length : 1,
 
     property: {

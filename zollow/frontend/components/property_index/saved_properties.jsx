@@ -11,15 +11,18 @@ class SavedProperties extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { page: 1, type: this.props.type };
+    this.state = { 
+      savedProperties: this.props.savedProperties,
+      page: 1, type: this.props.type };
   }
 
   componentDidMount() {
     this.props.fetchProperties(this.props.savedProperties);
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.properties.length != this.props.savedProperties.length) {
+  componentDidUpdate(prevprops) {
+    // debugger
+    if (this.state.savedProperties.length != this.props.savedProperties.length) {
       this.props.fetchProperties(this.props.savedProperties);
     }
   }

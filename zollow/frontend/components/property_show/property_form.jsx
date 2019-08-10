@@ -65,15 +65,17 @@ class PropertyForm extends React.Component {
     formData.append('property[rent]', this.state.rent);
     formData.append('property[latitude]', this.state.lat);
     formData.append('property[longitude]', this.state.lng);
-    // debugger
-    this.state.photoUrl.forEach((photo) => {
-      formData.append('property[photoUrl][]', photo);
+    debugger
+    this.state.photos.forEach((photo) => {
+      formData.append('property[photos][]', photo);
     });
 
     this.props.processProperty(formData,
       this.props.property.id).then((response) => {
         this.setState({ id: response.property.id, submit: true });
-      });
+      }
+    );
+    this.closeShow();
   }
 
   handleChange(type) {
@@ -187,6 +189,7 @@ class PropertyForm extends React.Component {
     } else {
       redirectPath = 'rent';
     }
+    debugger
     const preview = this.state.photoUrl.length > 0 ?
       <div className='upload-image-container'>
         <button
@@ -194,7 +197,7 @@ class PropertyForm extends React.Component {
           onClick={this.prevImage}>{'<'}
         </button>
         <img className='upload-image'
-          src={this.state.photos[this.state.currentPhoto]} />
+          src={this.state.photoUrl[this.state.currentPhoto]} />
         <button
           className='image-traversal next'
           onClick={this.nextImage}>{'>'}

@@ -26,7 +26,7 @@ const msp = (reactState, ownProps) => {
       sale: property.sale,
       rent: property.rent,
       price: property.price,
-      photosUrl: property.photos
+      photos: property.photos
     },
 
     errors: reactState.errors.property

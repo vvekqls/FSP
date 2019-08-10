@@ -9,6 +9,7 @@ class Property extends React.Component {
       currentPhoto: 0,
       close: false,
       saved: this.props.saved,
+      properties: this.props.properties
     };
 
     this.closeShow = this.closeShow.bind(this);
@@ -27,6 +28,7 @@ class Property extends React.Component {
       this.props.fetchOwner(this.props.property.ownerId);
     }
   }
+
 
   priceToString(price) {
     price = Math.floor(price);
@@ -105,7 +107,7 @@ class Property extends React.Component {
         onClick={this.handleSave}
         className='home-header-save'>
         <img className='home-unsaved-image' src={unsaved} /> SAVE</button>;
-
+  
     return (
       <div onClick={this.closeShow}
         className='home-background'>

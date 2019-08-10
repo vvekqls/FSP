@@ -19,7 +19,7 @@ class Api::PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.find(params[:id])
+    @property = Property.find(params[:id].to_i)
   end
 
   def create
@@ -27,6 +27,7 @@ class Api::PropertiesController < ApplicationController
     @property.owner_id = current_user.id
 
     if @property.save
+      attach_generic_house(@property);
       Save.create(property_id: @property.id, user_id: current_user.id)
       render :show
     else
@@ -34,9 +35,22 @@ class Api::PropertiesController < ApplicationController
     end
   end
 
+    def attach_generic_house(property)
+    property.photos.purge
+    if property_photos.empty?
+      file = EzDownload.open("https://app-yollow-pro.s3-us-west-1.amazonaws.com/11_print.png")
+      property.photos.attach(io: file, filename: '11_print.png')
+    else
+      property_photos[:photos].each do |photo|
+        property.photos.attach(photo)
+      end
+    end
+  end
+
   def update
     @property = Property.find(params[:id])
     if @property.update(property_params)
+      attach_generic_house(@property);
       render :show
     else
       render json: @property.errors.full_messages, status: 422
@@ -67,14 +81,6 @@ class Api::PropertiesController < ApplicationController
   def property_params
     # debugger
     params.require(:property).permit(:address, :latitude, :longitude, :beds, :baths, :price, :sale, :rent)
-  end
-
-  def pricing_range
-    (params[:minPrice]..params[:maxPrice])
-  end
-
-  def bounds
-    params[:bounds]
   end
 
   def property_photos
