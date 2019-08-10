@@ -10,6 +10,12 @@ require 'open-uri'
 Property.delete_all
 User.delete_all
 
+demo = User.create!(
+  email: 'd3song@asd',
+  username: 'd3song',
+  password: 'password'
+)
+
 guest = User.create!(
   email: 'guest@gmail.com',
   username: 'guest',
