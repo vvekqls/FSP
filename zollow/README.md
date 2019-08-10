@@ -7,9 +7,13 @@ This website will help users to find perfect home to rent or buy in U.S. Select 
 
 ## Features
 ---
-User and Session Authentication
-Google map
-Index and Show pages for properties.
+* User and Session Authentication
+* Interactive Google map with marker
+* Index and Show pages for properties.
+* Save properties
+* Filter propeties by amenities, location or price
+* Validates real address
+* Prevents duplicate property creation
 
 ## Core
 ---
