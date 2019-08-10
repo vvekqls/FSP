@@ -82,14 +82,54 @@ class Property < ApplicationRecord
   end
 ```
 
-* Index and Show pages for properties.
-* Save properties
-* Filter propeties by amenities, location or price
-* Validates real address
-* Prevents duplicate property creation
+#### Filter homes by location, price or amenities
+* User can filter home by amenities by selecting beds and baths in search bar
+* User can filter home by locations in search navigation bar
 
+```Ruby
+class Api::PropertiesController < ApplicationController
+  def index
+    properties = Property.in_bounds(params[:bounds]).with_attached_photos.sample(400)
+    min = params[:minPrice].to_i
+    max_temp = params[:maxPrice].to_i
+    max = (max_temp == 0 ? (+1.0/0.0) : max_temp )
+    
+    
+    @properties = properties.select do |property|
+      property.price >= min &&
+      property.price <= max &&
+      property.beds >= params[:minBeds].to_i &&
+      property.baths >= params[:minBaths].to_i &&
+      ( property.sale.to_s == params[:buy] ||
+        property.rent.to_s == params[:rent] )
+    end
+    render :index  
+  end
 
+  def show
+    @property = Property.find(params[:id].to_i)
+  end
+```
 
-## Core
----
-The main page consists of header with four main links and user login/signup. The links redirects to the index page where lists properties for rent or buy. The show page 
+#### Save Properties
+* A logged in user is able to view his or her saved properties
+* A logged in user is able to save on property and delete any property on saved list.
+
+### Front-end
+#### React
+The Rails backend API is connected to a React frontend to efficiently render to the virtual DOM.
+
+#### Redux
+Redux manages the front-end state of Aerbnb. When database information is retrieved, Redux state is updated first and re-renders the appropriate React components.
+
+### Back-end
+#### Ruby on Rails
+Ruby on Rails is the back-end framework used to query the database.
+
+#### Database
+Aerbnb uses a PostgreSQL database to store its relational data.
+
+#### Future Plans
+* Prevention of duplicate home creation
+* Validation of real addresses
+* Delete User's Property

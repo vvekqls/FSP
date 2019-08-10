@@ -87,3 +87,4 @@ class Api::PropertiesController < ApplicationController
     params.require(:property).permit(photos: [])
   end
 end
+
