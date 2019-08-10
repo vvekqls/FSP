@@ -5,9 +5,8 @@
 Yollow is and will be the leading real estate and rental marketplace. 
 This website will help users to find perfect home to rent or buy in U.S. Select your pefect house by choosing location, price, beds, and baths. Our friendly and knowledgeable website will help you find your perfect house!
 
-##Key Features
----
-###User and Session Authentication
+## Key Features
+### User and Session Authentication
 * Users can sign up or log in to use the application
 * Users can also log in through a demo account
 
@@ -59,7 +58,30 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 ```
-* Interactive Google map with marker
+
+## Interactive Google map with marker
+* Users are able to find listing on goole map
+* Listings are displayed on main page
+As a user moves the map around, the new bounds (coordinates) will get updated in realtime and send the correct listings from the backend (PostgreSQL database)
+
+```Ruby
+class Property < ApplicationRecord
+  
+  validates :price, :address, :longitude, :latitude, :beds, :baths, :owner_id, presence: true
+  validates_uniqueness_of :latitude, :scope => [:longitude]
+  validates :sale, inclusion: { in: [ true, false ] }
+  validates :rent, inclusion: { in: [ true, false ] }
+
+  has_many_attached :photos
+
+  def self.in_bounds(bounds)
+    self.where("latitude < ?", bounds[:northEast][:lat])
+      .where("latitude > ?", bounds[:southWest][:lat])
+      .where("longitude > ?", bounds[:southWest][:lng])
+      .where("longitude < ?", bounds[:northEast][:lng])
+  end
+```
+
 * Index and Show pages for properties.
 * Save properties
 * Filter propeties by amenities, location or price
