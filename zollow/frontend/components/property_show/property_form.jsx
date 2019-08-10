@@ -189,7 +189,7 @@ class PropertyForm extends React.Component {
     } else {
       redirectPath = 'rent';
     }
-    debugger
+  
     const preview = this.state.photoUrl.length > 0 ?
       <div className='upload-image-container'>
         <button
