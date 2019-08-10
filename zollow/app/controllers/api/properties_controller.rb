@@ -6,7 +6,7 @@ class Api::PropertiesController < ApplicationController
     max_temp = params[:maxPrice].to_i
     max = (max_temp == 0 ? (+1.0/0.0) : max_temp )
     
-    # debugger
+    
     @properties = properties.select do |property|
       property.price >= min &&
       property.price <= max &&
