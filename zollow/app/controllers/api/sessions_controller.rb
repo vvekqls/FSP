@@ -1,4 +1,3 @@
-require 'byebug'
 class Api::SessionsController < ApplicationController
   def create
     @user = User.find_by_credentials(
@@ -8,7 +7,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login(@user)
-      render 'api/users/show'
+      render 'api/users/_user.json.jbuilder'
     else
       render json: ["Invalid email/password combination"], status: 401
     end

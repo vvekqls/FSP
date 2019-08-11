@@ -12,7 +12,6 @@ class SavedProperties extends React.Component {
     super(props);
 
     this.state = { 
-      savedProperties: this.props.savedProperties,
       page: 1, type: this.props.type };
   }
 
@@ -22,9 +21,12 @@ class SavedProperties extends React.Component {
 
   componentDidUpdate(prevprops) {
     // debugger
-    if (this.state.savedProperties.length != this.props.savedProperties.length) {
+    if (this.props.properties.length != this.props.savedProperties.length) {
       this.props.fetchProperties(this.props.savedProperties);
+      return
     }
+
+    
   }
 
   render() {

@@ -5,21 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require 'open-uri'
 
 Property.delete_all
 User.delete_all
 
-demo = User.create!(
+demo = User.create(
   email: 'd3song@asd',
-  username: 'd3song',
-  password: 'password'
+  password: 'password',
+  username: 'd3song'
 )
 
 guest = User.create!(
-  email: 'guest@gmail.com',
-  username: 'guest',
-  password: 'password'
+  email: 'andrew@gmail.com',
+  password: 'password',
+  username: 'andrew'
 )
 
 alex = User.create!(
@@ -49,7 +50,7 @@ house = Property.create!(
   rent: false,
   beds: 3,
   baths: 1,
-  owner_id: guest.id
+  owner_id: user.id
 )
 
 house_1 = Property.create!(
