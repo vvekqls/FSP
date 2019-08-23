@@ -120,14 +120,14 @@ class Api::PropertiesController < ApplicationController
 The Rails backend API is connected to a React frontend to efficiently render to the virtual DOM.
 
 #### Redux
-Redux manages the front-end state of Aerbnb. When database information is retrieved, Redux state is updated first and re-renders the appropriate React components.
+Redux manages the front-end state of Yollow. When database information is retrieved, Redux state is updated first and re-renders the appropriate React components.
 
 ### Back-end
 #### Ruby on Rails
 Ruby on Rails is the back-end framework used to query the database.
 
 #### Database
-Aerbnb uses a PostgreSQL database to store its relational data.
+Yollow uses a PostgreSQL database to store its relational data.
 
 #### Future Plans
 * Prevention of duplicate home creation
